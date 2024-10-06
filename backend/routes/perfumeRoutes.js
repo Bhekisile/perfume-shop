@@ -15,10 +15,10 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
   if (perfume) {
     return res.json(perfume);
+  } else {
+    res.status(404);
+    throw new Error('Resource not found');
   }
-
-  res.status(404).json({ message: 'Perfume not found' });
-
 }));
 
 export default router;
