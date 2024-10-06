@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { timestamp } from 'rxjs';
+// import { timestamp } from 'rxjs';
 
-const reviewSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,

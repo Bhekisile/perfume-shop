@@ -12,10 +12,10 @@ const orderSchema = mongoose.Schema({
       qty: { type: Number, required: true },
       image: { type: String, required: true },
       price: { type: Number, required: true },
-      product: {
+      perfume: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Product',
+        ref: 'Perfume',
       },
     },
   ],
@@ -26,6 +26,11 @@ const orderSchema = mongoose.Schema({
     country: { type: String, required: true },
   },
   itemsPrice: { 
+    type: Number, 
+    required: true,
+    default: 0.0,
+  },
+  taxPrice: { 
     type: Number, 
     required: true,
     default: 0.0,
