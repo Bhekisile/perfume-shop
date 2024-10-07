@@ -82,17 +82,17 @@ const updatePerfume = asyncHandler(async (req, res) => {
 // @desc    Delete a perfume
 // @route   DELETE /api/perfumes/:id
 // @access  Private/Admin
-// const deletePerfume = asyncHandler(async (req, res) => {
-//   const perfume = await Perfume.findById(req.params.id);
+const deletePerfume = asyncHandler(async (req, res) => {
+  const perfume = await Perfume.findById(req.params.id);
 
-//   if (perfume) {
-//     await perfume.deleteOne(_id: perfume._id);
-//     res.status(200).json({ message: 'Perfume deleted' });
-//   } else {
-//     res.status(404);
-//     throw new Error('Resource not found');
-//   }
-// });
+  if (perfume) {
+    await perfume.deleteOne({ _id: perfume._id });
+    res.status(200).json({ message: 'Perfume deleted' });
+  } else {
+    res.status(404);
+    throw new Error('Resource not found');
+  }
+});
 
 // @desc Create a new review
 // @route POST /api/perfumes/:id/reviews
@@ -134,4 +134,4 @@ const createPerfumeReview = asyncHandler(async (req, res) => {
   }
 });
 
-export { getPerfumes, getPerfumeById, createPerfumeReview };
+export { getPerfumes, getPerfumeById, createPerfume, updatePerfume, deletePerfume, createPerfumeReview };
