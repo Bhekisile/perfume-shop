@@ -32,10 +32,12 @@ const perfumeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-    required: true,
-  },
+  image: [
+    {
+    original: {type: String, required: true},
+    thumbnail: {type: String, required: true},
+    },
+  ],
   shortDescription: {
     type: String,
     required: true,
@@ -66,17 +68,6 @@ const perfumeSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
-  price: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  size: [
-    {
-      name: { type: String, required: true },
-      total: { type: Number, required: true, default: 0 },
-    },
-  ],
 }, {
   timestamps: true,
 });
@@ -84,3 +75,4 @@ const perfumeSchema = new mongoose.Schema({
 const Perfume = mongoose.model("Perfume", perfumeSchema);
 
 export default Perfume;
+
